@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokerogue Battle</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="game-shell">
+      <header class="top-bar">
+        <div class="hud left">
+          <div class="pill">Route 1</div>
+          <div class="pill alt">Battle</div>
+        </div>
+        <div class="banner">POKÉROGUE</div>
+        <div class="hud right">
+          <div class="pill small">Turn 12</div>
+          <div class="pill small alt">Wild</div>
+        </div>
+      </header>
+
+      <div class="battle-layout">
+        <main class="arena-panel">
+          <div class="battlefield-layer"></div>
+
+          <div class="fighter trainer" data-side="player">
+            <div class="fighter-card">
+              <div class="portrait placeholder portrait-player">
+                <span id="playerPortraitLabel">PLAYER<br />MON</span>
+              </div>
+              <div class="fighter-meta">
+                <div class="name-row">
+                  <span class="name">BLAIR</span>
+                  <span class="lvl" id="playerLevel">Lv. 26</span>
+                </div>
+                <div class="name-row small-row">
+                  <span id="playerMonsterName">VINEGROVE</span>
+                  <span>HP</span>
+                </div>
+                <div class="health-bar">
+                  <div class="health-fill player-fill" id="playerHealthFill"></div>
+                </div>
+                <div class="hp-text"><span id="playerHealthText">164 / 164</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fighter enemy" data-side="enemy">
+            <div class="fighter-card enemy-card">
+              <div class="fighter-meta enemy-meta">
+                <div class="name-row">
+                  <span class="name">MIGHTYENA</span>
+                  <span class="lvl">Lv. 24</span>
+                </div>
+                <div class="name-row small-row">
+                  <span>WILD</span>
+                  <span>HP</span>
+                </div>
+                <div class="health-bar enemy-bar">
+                  <div class="health-fill enemy-fill" id="enemyHealthFill"></div>
+                </div>
+                <div class="hp-text"><span id="enemyHealthText">132 / 132</span></div>
+              </div>
+              <div class="portrait placeholder portrait-enemy">
+                <span>ENEMY<br />MON</span>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <aside class="skills-panel">
+          <div class="dialogue-box">
+            <div class="status-row">
+              <h2 id="battlePrompt">What will BLAIR do?</h2>
+              <span id="turnBadge" class="turn-badge">Turn 1</span>
+            </div>
+          </div>
+
+          <div class="main-menu" id="mainMenu">
+            <button class="menu-button skills-choice" data-menu="skills">Skills</button>
+            <button class="menu-button" data-menu="item">Item</button>
+            <button class="menu-button" data-menu="monster">Monster</button>
+            <button class="menu-button run-choice" data-menu="run">Run</button>
+          </div>
+
+          <div class="move-grid is-hidden" id="skillsMenu">
+            <button class="back-button" id="backToMainMenu" type="button">Back</button>
+            <button class="move-button" data-move="Flame Burst">
+              <span class="move-name">Flame Burst</span>
+              <span class="move-type fire">FIRE</span>
+            </button>
+            <button class="move-button" data-move="Vine Slash">
+              <span class="move-name">Vine Slash</span>
+              <span class="move-type grass">GRASS</span>
+            </button>
+            <button class="move-button" data-move="Quick Step">
+              <span class="move-name">Quick Step</span>
+              <span class="move-type speed">SPEED</span>
+            </button>
+            <button class="move-button" data-move="Guard">
+              <span class="move-name">Guard</span>
+              <span class="move-type shield">GUARD</span>
+            </button>
+          </div>
+
+          <div class="monster-menu is-hidden" id="monsterMenu">
+            <button class="back-button" id="backFromMonsterMenu" type="button">Back</button>
+            <button class="monster-choice" data-monster="Vinegrove">
+              <span><strong>Vinegrove</strong><small>Lv. 26</small></span>
+              <span class="monster-hp">164/164</span>
+            </button>
+            <button class="monster-choice" data-monster="Emberbyte">
+              <span><strong>Emberbyte</strong><small>Lv. 24</small></span>
+              <span class="monster-hp">121/121</span>
+            </button>
+            <button class="monster-choice" data-monster="Fleet">
+              <span><strong>Fleet</strong><small>Lv. 22</small></span>
+              <span class="monster-hp">104/104</span>
+            </button>
+          </div>
+        </aside>
+
+        <section class="info-bar">
+          <div class="panel party-panel">
+            <h3>Party</h3>
+            <ul>
+              <li class="active" data-party="Vinegrove"><span>Vinegrove</span><strong>164/164</strong></li>
+              <li data-party="Emberbyte"><span>Emberbyte</span><strong>121/121</strong></li>
+              <li data-party="Fleet"><span>Fleet</span><strong>104/104</strong></li>
+            </ul>
+          </div>
+
+          <div class="panel log-panel">
+            <h3>Battle Log</h3>
+            <div id="battleLog" class="battle-log">
+              <p>Wild Mightyena appeared!</p>
+              <p>BLAIR sent out Vinegrove.</p>
+              <p>Vinegrove is ready.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
